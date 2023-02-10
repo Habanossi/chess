@@ -15,7 +15,7 @@ void board_print(vector<vector<int>> board){
 vector<vector<int>> change_state(vector<vector<int>> board, int id, int placement, int old){
 	board[placement/10 - 1][placement%10 - 1] = id;
     if(old != 0){
-        board[old/10 - 1][old%10 - 1] = id;
+        board[old/10 - 1][old%10 - 1] = 0;
     }
 	return board;
 }

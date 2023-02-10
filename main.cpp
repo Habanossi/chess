@@ -30,8 +30,7 @@ int main() {
 		std::cin >> y;
 		std::cout << "Move the queen: "; //
 		std::cin >> x;
-		int old;
-		old = pieces[0].move(x);
+		int old = pieces[0].move(x);
 		board = change_state(board, pieces[y].id, x, old);
 		if(x != 0){
 			board_print(board);
