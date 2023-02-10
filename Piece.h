@@ -10,7 +10,7 @@ class Piece {
         int id;
 		int placement;
 		Piece(string n, int i, int p);
-		void move(int new_placement);
+		int move(int new_placement);
 };
 
 #endif

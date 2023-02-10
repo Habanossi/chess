@@ -10,6 +10,8 @@ Piece::Piece(string n, int i, int p){     // Constructor
     cout << "Initiating " + name + " with id " + to_string(id) + " and placement " + to_string(placement) + ".\n";
 }
 
-void Piece::move(int new_placement){
-	placement = new_placement;
+int Piece::move(int new_placement){
+	int o = placement;
+    placement = new_placement;
+    return o;
 }
