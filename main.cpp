@@ -22,16 +22,22 @@ int main() {
 	vector<Piece> pieces = init_pieces();
 	
 	board = change_state(board, pieces[0].id, pieces[0].placement, 0);
+	board = change_state(board, pieces[1].id, pieces[1].placement, 0);
 	board_print(board);
 	int x = 1;
 	int y = 0;
 	while(x != 0){
-		std::cout << "What to move? 0 for queen: "; //
+		std::cout << "What to move? 1 for queen, 2 for pawn: "; //
 		std::cin >> y;
-		std::cout << "Move the queen: "; //
+		std::cout << "Move to: "; //
 		std::cin >> x;
-		int old = pieces[0].move(x);
-		board = change_state(board, pieces[y].id, x, old);
+		if(board[x/10 - 1][x%10 - 1] == 0){
+			int old = pieces[y-1].move(x);
+			board = change_state(board, pieces[y-1].id, x, old);
+		}
+		else{
+			std::cout << "can't move there.\n";
+		}
 		if(x != 0){
 			board_print(board);
 		}

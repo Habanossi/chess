@@ -9,7 +9,8 @@ class Piece {
         string name;
         int id;
 		int placement;
-		Piece(string n, int i, int p);
+        int colour;
+		Piece(string n, int i, int p, int c);
 		int move(int new_placement);
 };
 
