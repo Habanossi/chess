@@ -12,6 +12,9 @@ class Piece {
         int colour;
 		Piece(string n, int i, int p, int c);
 		int move(int new_placement);
+        //int getId();
+        //int getPlacement();
+        //int getColour();
 };
 
 #endif
