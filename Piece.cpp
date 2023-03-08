@@ -14,8 +14,14 @@ Piece::Piece(string n, int i, int p, int c){     // Constructor
     cout << "Initiating " + c_str + " " + name + " with id " + to_string(id) + " and placement " + to_string(placement) + ".\n";
 }
 
-int Piece::move(int new_placement){
-	int o = placement;
+void Piece::move(int new_placement){
     placement = new_placement;
-    return o;
+}
+
+void Piece::print(){
+    std::cout << name << " with id " << id << " is in " << placement << "\n";
+}
+
+int Piece::getPlacement(){
+    return placement;
 }

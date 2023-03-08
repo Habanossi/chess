@@ -3,10 +3,10 @@
 
 using namespace std;
 
-void board_print(vector<vector<int>> board){
+void board_print(vector<vector<int>> board, vector<char> char_list){
     for(int i = 0; i < board.size(); i++){
 	    for(int j = 0; j < board[i].size(); j++){
-    	    cout << board[i][j] << " ";
+			cout << char_list[board[i][j]] << " ";
 		}
     	cout << "\n";
   	}
