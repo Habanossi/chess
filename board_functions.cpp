@@ -19,3 +19,17 @@ vector<vector<int>> change_state(vector<vector<int>> board, int id, int placemen
     }
 	return board;
 }
+
+vector<vector<int>> init_board(){
+	return {	{0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0}
+	};
+
+}
+

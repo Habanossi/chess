@@ -5,17 +5,23 @@
 using namespace std;
 
 class Piece {
-    public:
+    private:
         string name;
         int id;
-		int placement;
+		int pos;
         int colour;
+    public:
 		Piece(string n, int i, int p, int c);
-		void move(int new_placement);
+		void move(int new_pos);
         void print();
-        //int getId();
-        int getPlacement();
-        //int getColour();
+        int getId();
+        int getPos();
+        int getColour();
+        void setId(int id);
+        void setPos(int pos);
+        void setColour(int colour);
+        string getName();
+        void setName(string name);
 };
 
 #endif

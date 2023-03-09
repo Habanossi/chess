@@ -8,51 +8,45 @@
 using namespace std;
 
 int main() {
-	cout << "Wanna play chess? cool beans!\n";
+	//init board state, pieces
 	vector<char> char_list ={'-', '1', '2', '3', '4', '5', '6', 'a', 'b', 'c', 'd', 'e', 'f'};
-	vector<vector<int>> board  = {	{0,0,0,0,0,0,0,0},
-									{0,0,0,0,0,0,0,0},
-									{0,0,0,0,0,0,0,0},
-									{0,0,0,0,0,0,0,0},
-									{0,0,0,0,0,0,0,0},
-									{0,0,0,0,0,0,0,0},
-									{0,0,0,0,0,0,0,0},
-									{0,0,0,0,0,0,0,0}
-	};
-
+	vector<vector<int>> board  = init_board();
 	vector<Piece> pieces = init_pieces();
 	for(auto i : pieces){
-		board = change_state(board, i.id, i.placement, 0);
+		board = change_state(board, i.getId(), i.getPos(), 0);
 	}
 	board_print(board, char_list);
-	int new_placement = 1;
-	int old_placement;
-	while(new_placement != 0){
+
+	//start game
+	cout << "Wanna play chess? cool beans!\n";
+	int new_pos = 1;
+	int old_pos;
+	while(new_pos != 0){
 		bool c = 1;
 		while(c){
-			std::cout << "From where to move?";
-			std::cin >> old_placement;
+			std::cout << "From where to move? ";
+			std::cin >> old_pos;
 
 			for(auto& i : pieces){
-				if(i.placement == old_placement){
+				if(i.getPos() == old_pos){
 					bool l = 1;
 					while(l){
 						std::cout << "Move to: ";
-						std::cin >> new_placement;
-						if(board[new_placement/10 - 1][new_placement%10 - 1] == 0) l = 0;
+						std::cin >> new_pos;
+						if(board[new_pos/10 - 1][new_pos%10 - 1] == 0) l = 0;
 						else std::cout << "can't move there.\n";
 					}
-					int k = i.getPlacement();
-					i.move(new_placement);
-					board = change_state(board, i.id, new_placement, k);
-					i.print(); //denhä säger att rookken har ny position
+					int k = i.getPos();
+					i.move(new_pos);
+					board = change_state(board, i.getId(), new_pos, k);
+					i.print();
 					c = 0;
 					break;
 				}
 			} if(c) std::cout << "No piece there.\n";
 		}
 		
-		if(new_placement != 0){
+		if(new_pos != 0){
 			board_print(board, char_list);
 		}
 		
