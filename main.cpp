@@ -1,6 +1,5 @@
 #include "run.cpp"
-
-using namespace std;
+#include "Piece.cpp"
 
 int main() {
 	run();
