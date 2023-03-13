@@ -14,7 +14,6 @@ void run(){
 	for(auto i : pieces){
 		board = change_state(board, i.getId(), i.getPos(), 0);
 	}
-	board_print(board, char_list);
 
 	//start game
 	cout << "Wanna play chess? cool beans!\n";
@@ -23,6 +22,7 @@ void run(){
 	int n_pos = 1; //new position, position the piece is moving to
 
 	while(n_pos != 0){
+		board_print(board, char_list);
 		bool c = 1;
 		while(c){
 			cout << "From where to move? ";
@@ -41,18 +41,14 @@ void run(){
 					if(board[n_pos/10 - 1][n_pos%10 - 1] == 0) l = 0;
 					else cout << "can't move there.\n";
 				}
+				int k = i.getPos();
 				i.move(n_pos);
-				board = change_state(board, i.getId(), n_pos, i.getPos());
+				board = change_state(board, i.getId(), n_pos, k);
 				i.print();
                 cout << "RUN\n";
 				c = 0;
 				break;
 			} if(c) cout << "No piece there.\n";
 		}
-		
-		if(n_pos != 0){
-			board_print(board, char_list);
-		}
-		
 	}
 }
