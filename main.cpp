@@ -1,14 +1,14 @@
-#include <iostream>
-#include <vector>
-#include "init_pieces.cpp"
-#include "Piece.h"
-#include "Piece.cpp"
-#include "board_functions.cpp"
+//#include <iostream>
+//#include <vector>
+//#include "init_pieces.cpp"
+//#include "Piece.h"
+//#include "Piece.cpp"
+//#include "board_functions.cpp"
 #include "run.cpp"
 
 using namespace std;
 
-int main() {
+int main() {/*
 	//init board state, pieces
 	vector<char> char_list ={'-', '1', '2', '3', '4', '5', '6', 'a', 'b', 'c', 'd', 'e', 'f'};
 	vector<vector<int>> board  = init_board();
@@ -43,8 +43,9 @@ int main() {
 					}
 					int k = i.getPos();
 					i.move(new_pos);
-					board = change_state(board, i.getId(), new_pos, k);
-					i.print();
+					/*board = change_state(board, i.getId(), new_pos, k);
+					i.print();*
+					run(i, new_pos, k, board);
 					c = 0;
 					break;
 				}
@@ -55,7 +56,7 @@ int main() {
 			board_print(board, char_list);
 		}
 		
-	}
+	}*/
 	run();
 	return 0;
 } 
