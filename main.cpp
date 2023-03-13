@@ -4,6 +4,7 @@
 #include "Piece.h"
 #include "Piece.cpp"
 #include "board_functions.cpp"
+#include "run.cpp"
 
 using namespace std;
 
@@ -26,7 +27,11 @@ int main() {
 		while(c){
 			std::cout << "From where to move? ";
 			std::cin >> old_pos;
-
+			if(old_pos == 0){
+				c = 0;
+				new_pos = 0;
+				break;
+			}
 			for(auto& i : pieces){
 				if(i.getPos() == old_pos){
 					bool l = 1;
@@ -51,5 +56,6 @@ int main() {
 		}
 		
 	}
+	run();
 	return 0;
 } 
