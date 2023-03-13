@@ -1,24 +1,9 @@
-/*#include <iostream>
-//#include "init_pieces.cpp"
-#include "Piece.h"
-#include "board_functions.cpp"
-
-void run(Piece &i, int new_pos, int k, vector<vector<int>> board){
-    std::cout << "RUN\n";
-    
-    //int k = i.getPos();
-	//i.move(new_pos);
-	board = change_state(board, i.getId(), new_pos, k);
-    i.print();
-}*/
-
 #include <iostream>
 #include <vector>
 #include "init_pieces.cpp"
 #include "Piece.h"
 #include "Piece.cpp"
 #include "board_functions.cpp"
-//#include "run.cpp"
 
 using namespace std;
 
@@ -59,6 +44,7 @@ void run(){
 					i.move(new_pos);
 					board = change_state(board, i.getId(), new_pos, k);
 					i.print();
+                    cout << "RUN\n";
 					//run(i, new_pos, k, board);
 					c = 0;
 					break;
