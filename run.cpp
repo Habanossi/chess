@@ -8,9 +8,9 @@ using namespace std;
 
 void run(){
 	//init board state, pieces
-	vector<char> char_list = init_char_list();
-	vector<vector<int>> board  = init_board();
-	vector<Piece> pieces = init_pieces();
+	vector<char> char_list = init_char_list();	//list of printed symbols for pieces as well as empty cell
+	vector<vector<int>> board  = init_board(); 	//board state matrix
+	vector<Piece> pieces = init_pieces(); 		//list of all pieces in the game
 	for(auto i : pieces){
 		board = change_state(board, i.getId(), i.getPos(), 0);
 	}
@@ -18,38 +18,39 @@ void run(){
 
 	//start game
 	cout << "Wanna play chess? cool beans!\n";
-	int new_pos = 1;
-	int old_pos;
-	while(new_pos != 0){
+
+	int pos; //current position, position the piece is moving from
+	int n_pos = 1; //new position, position the piece is moving to
+
+	while(n_pos != 0){
 		bool c = 1;
 		while(c){
-			std::cout << "From where to move? ";
-			std::cin >> old_pos;
-			if(old_pos == 0){
+			cout << "From where to move? ";
+			cin >> pos;
+			if(pos == 0){
 				c = 0;
-				new_pos = 0;
+				n_pos = 0;
 				break;
 			}
 			for(auto& i : pieces){
-				if(i.getPos() != old_pos) continue;
+				if(i.getPos() != pos) continue;
 				bool l = 1;
 				while(l){
-					std::cout << "Move to: ";
-					std::cin >> new_pos;
-					if(board[new_pos/10 - 1][new_pos%10 - 1] == 0) l = 0;
-					else std::cout << "can't move there.\n";
+					cout << "Move to: ";
+					cin >> n_pos;
+					if(board[n_pos/10 - 1][n_pos%10 - 1] == 0) l = 0;
+					else cout << "can't move there.\n";
 				}
-				int k = i.getPos();
-				i.move(new_pos);
-				board = change_state(board, i.getId(), new_pos, k);
+				i.move(n_pos);
+				board = change_state(board, i.getId(), n_pos, i.getPos());
 				i.print();
                 cout << "RUN\n";
 				c = 0;
 				break;
-			} if(c) std::cout << "No piece there.\n";
+			} if(c) cout << "No piece there.\n";
 		}
 		
-		if(new_pos != 0){
+		if(n_pos != 0){
 			board_print(board, char_list);
 		}
 		
