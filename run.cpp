@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include "init_pieces.cpp"
 #include "Piece.h"
 #include "functions.cpp"
 
