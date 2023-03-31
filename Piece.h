@@ -12,6 +12,7 @@ class Piece {
         int colour;
     public:
 		Piece(string n, int i, int p, int c);
+        //~Piece() { cout << "\n destruction lul \n"; };
 		void move(int new_pos);
         void print();
         int getId();
