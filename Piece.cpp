@@ -3,11 +3,10 @@
 
 using namespace std;
 
-Piece::Piece(string n, int i, int p, int c){     // Constructor
+Piece::Piece(string n, int i, int p){     // Constructor
     setName(n);
     setId(i);
     setPos(p);
-    setColour(c);
     cout << "Initiating ";
     print();
 }
@@ -28,20 +27,12 @@ int Piece::getPos(){
     return pos;
 }
 
-int Piece::getColour(){
-    return colour;
-}
-
 void Piece::setId(int i){
     id = i;
 }
 
 void Piece::setPos(int p){
     pos = p;
-}
-
-void Piece::setColour(int c){
-    colour = c;
 }
 
 string Piece::getName(){

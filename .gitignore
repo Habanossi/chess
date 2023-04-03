@@ -1,0 +1,8 @@
+#ignore a.exe
+*.exe
+
+#ignore a.out
+*.out
+
+#ignore diagram file .bkp
+*.bkp

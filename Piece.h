@@ -9,18 +9,15 @@ class Piece {
         string name;
         int id;
 		int pos;
-        int colour;
     public:
-		Piece(string n, int i, int p, int c);
+		Piece(string n, int i, int p);
         //~Piece() { cout << "\n destruction lul \n"; };
 		void move(int new_pos);
         void print();
         int getId();
         int getPos();
-        int getColour();
         void setId(int id);
         void setPos(int pos);
-        void setColour(int colour);
         string getName();
         void setName(string name);
 };

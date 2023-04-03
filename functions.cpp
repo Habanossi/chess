@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void board_print(vector<vector<int>> board, vector<char> char_list){
+void board_print(vector<vector<int>> board, vector<string> char_list){
     for(int i = 0; i < board.size(); i++){
 	    for(int j = 0; j < board[i].size(); j++){
 			cout << char_list[board[i][j]] << " ";
@@ -34,8 +34,8 @@ vector<vector<int>> init_board(){
 
 }
 
-vector<char> init_char_list(){
-	vector<char> char_list ={'-', '1', '2', '3', '4', '5', '6', 'a', 'b', 'c', 'd', 'e', 'f'};
+vector<string> init_char_list(){
+	vector<string> char_list = {"-", "1", "2", "3", "4", "5", "6", "a", "b", "c", "d", "e", "f"};
 	return char_list;
 } 
 
@@ -61,40 +61,40 @@ bool is_cell_occupied(vector<vector<int>> board, int pos){
 vector<Piece> init_pieces(){
     vector<Piece> pieces = {
         //create white pieces
-        Piece("White Queen", 1, 85, 0),
-        Piece("White King", 2, 84, 0),
-        Piece("White Rook", 3, 81, 0),
-        Piece("White Rook", 3, 88, 0),
-        Piece("White Knight", 4, 82, 0),
-        Piece("White Knight", 4, 87, 0),
-        Piece("White Bishop", 5, 83, 0),
-        Piece("White Bishop", 5, 86, 0),
-        Piece("White Pawn", 6, 71, 0),
-        Piece("White Pawn", 6, 72, 0),
-        Piece("White Pawn", 6, 73, 0),
-        Piece("White Pawn", 6, 74, 0),
-        Piece("White Pawn", 6, 75, 0),
-        Piece("White Pawn", 6, 76, 0),
-        Piece("White Pawn", 6, 77, 0),
-        Piece("White Pawn", 6, 78, 0),
+        Piece("White Queen", 1, 85),
+        Piece("White King", 2, 84),
+        Piece("White Rook", 3, 81),
+        Piece("White Rook", 3, 88),
+        Piece("White Knight", 4, 82),
+        Piece("White Knight", 4, 87),
+        Piece("White Bishop", 5, 83),
+        Piece("White Bishop", 5, 86),
+        Piece("White Pawn", 6, 71),
+        Piece("White Pawn", 6, 72),
+        Piece("White Pawn", 6, 73),
+        Piece("White Pawn", 6, 74),
+        Piece("White Pawn", 6, 75),
+        Piece("White Pawn", 6, 76),
+        Piece("White Pawn", 6, 77),
+        Piece("White Pawn", 6, 78),
 
         //create black pieces
-        Piece("Black Queen", 7, 15, 1),
-        Piece("Black King", 8, 14, 1),
-        Piece("Black Rook", 9, 11, 1),
-        Piece("Black Rook", 9, 18, 1),
-        Piece("Black Knight", 10, 12, 1),
-        Piece("Black Knight", 10, 17, 1),
-        Piece("Black Bishop", 11, 13, 1),
-        Piece("Black Bishop", 11, 16, 1),
-        Piece("Black Pawn", 12, 21, 1),
-        Piece("Black Pawn", 12, 22, 1),
-        Piece("Black Pawn", 12, 23, 1),
-        Piece("Black Pawn", 12, 24, 1),
-        Piece("Black Pawn", 12, 25, 1),
-        Piece("Black Pawn", 12, 26, 1),
-        Piece("Black Pawn", 12, 27, 1),
-        Piece("Black Pawn", 12, 28, 1)
+        Piece("Black Queen", 7, 15),
+        Piece("Black King", 8, 14),
+        Piece("Black Rook", 9, 11),
+        Piece("Black Rook", 9, 18),
+        Piece("Black Knight", 10, 12),
+        Piece("Black Knight", 10, 17),
+        Piece("Black Bishop", 11, 13),
+        Piece("Black Bishop", 11, 16),
+        Piece("Black Pawn", 12, 21),
+        Piece("Black Pawn", 12, 22),
+        Piece("Black Pawn", 12, 23),
+        Piece("Black Pawn", 12, 24),
+        Piece("Black Pawn", 12, 25),
+        Piece("Black Pawn", 12, 26),
+        Piece("Black Pawn", 12, 27),
+        Piece("Black Pawn", 12, 28)
     };
     cout << "\n\n";
     return pieces;

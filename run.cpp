@@ -8,7 +8,7 @@ using namespace std;
 void run(){
 	cout << "Wanna play chess? cool beans! Let's first initiate the board state.\n";
 	//init board state, pieces
-	vector<char> char_list = init_char_list();	//list of printed symbols for pieces as well as empty cell
+	vector<string> char_list = init_char_list();	//list of printed symbols for pieces as well as empty cell
 	vector<vector<int>> board  = init_board(); 	//board state matrix
 	vector<Piece> pieces = init_pieces(); 		//list of all pieces in the game
 	for(auto i : pieces){
