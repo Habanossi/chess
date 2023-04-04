@@ -15,37 +15,47 @@ void run(){
 		board = change_state(board, i.getId(), i.getPos(), 0);
 	}
 	cout << "Initiations complete, let's start!\n";
-	
-	//start game
-	int pos = 1; //current position, position the piece is moving from
-	//gameplay loop
-	while(pos != 99){
-		int n_pos = 1; //new position, position the piece is moving to
+	int exit_command_called = 0;						
+	while(!exit_command_called){					//gameplay loop
+		int from_cell = 1;					//current position, position the piece is moving from
+		int to_cell = 1; 					//new position, position the piece is moving to
+		bool cell_occupied = 1;
+		bool cell_empty = 1;
 		board_print(board, char_list);
-		bool c = 1;
-		//loop for checking from where we want to move our piece
-		while(c){	
-			pos = get_pos_command();
-			if(pos == 99) break; // check for quitting command 99
-			
-			//loop for checking to where we want to move our piece
-			while(n_pos == 1){
-				n_pos = get_n_pos_command();
-				if(n_pos == 99) pos = 99; break; // check for quitting command 99
-				if(is_cell_occupied(board, n_pos)){
-					cout << "Can't move there.\n";
-					n_pos = 1;
-				}
-			}	
-			
-			for(auto& i : pieces){
-				if(i.getPos() != pos) continue;
-				i.move(n_pos); //change the piece's position
-				board = change_state(board, i.getId(), n_pos, pos); //change the board state accordingly
-				i.print();
-				c = 0;
+		
+		while(cell_empty){				//loop for checking from where we want to move our piece
+			from_cell = get_pos_command();
+			if(from_cell == 99) break; 		//check for quitting command 99
+			if(!is_cell_occupied(board, from_cell)){
+				cout << "No piece there.\n";
+			}
+			else cell_empty = 0;
+		}	
+		if(from_cell == 99){
+			exit_command_called = 1;
+			break;
+		} 
+		
+		while(cell_occupied){				//loop for checking to where we want to move our piece
+			to_cell = get_n_pos_command();
+			if(to_cell == 99){				//check for quitting command 99
 				break;
-			} if(c) cout << "No piece there.\n";
+				}
+			if(is_cell_occupied(board, to_cell)){
+				cout << "Can't move there.\n";
+			}
+			else cell_occupied = 0;
+		}	
+		if(to_cell == 99){
+			exit_command_called = 1;
+			break;
+		}
+		for(auto& i : pieces){
+			if(i.getPos() != from_cell) continue;
+			i.move(to_cell); //change the piece's position
+			board = change_state(board, i.getId(), to_cell, from_cell); //change the board state accordingly
+			i.print();
+			break;
 		}
 	}
 }
