@@ -7,7 +7,7 @@ run():
 	- runs the game. This includes:
 	- init and print a 8x8 chessboard in ASCII. Create a matrix (vector of vectors) for it.
 	- Create pieces for the board, through the Piece class and init_pieces() function
-	- allow user to move the pieces any way it wants to
+	- allow user to move the pieces any way they want to
 	- if user tries to move a piece on another piece, it won't allow it
 	- quit when user inserts "99"
 
@@ -27,3 +27,15 @@ TODO:
 	- allow eating of opponents pieces
 	- introduce movement restrictions for pieces
 	- ban trying to move outside the board
+
+
+
+
+	-game state:
+		- would keep track of who's turn it is
+		- first turn always whites
+		- if white, only white side is moved
+		- if black only black side is moved
+		- use real chess notation whic can be the same for both sides
+		- turn order can be printed on top of board
+		

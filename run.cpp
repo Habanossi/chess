@@ -4,9 +4,10 @@
 #include "functions.cpp"
 
 using namespace std;
+string WELCOME_STRING = "Wanna play chess? cool beans! Let's first initiate the board state.\n";
 
 void run(){
-	cout << "Wanna play chess? cool beans! Let's first initiate the board state.\n";
+	cout << WELCOME_STRING;
 	//init board state, pieces
 	vector<string> char_list = init_char_list();	//list of printed symbols for pieces as well as empty cell
 	vector<vector<int>> board  = init_board(); 	//board state matrix
